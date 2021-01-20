@@ -1,0 +1,11 @@
+{
+    "name":"@ijstech/storage",
+    "version": "0.0.1",
+    "description": "Storage plugin",
+    "author": "https://ijs.network",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ijstech/storage"
+    }
+}
