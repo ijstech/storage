@@ -1,20 +1,29 @@
+const Log = require('@ijstech/log');
+var Options = {};
+
 module.exports = {
-    init: function(options){
+    _init: function(options){
+        Options = options;
         this.options = options;
     },
     readFile: async function(filePath){ 
-        switch (this.options.type){
-            case 'local':
-                return require('./local').readFile(filePath, this.options)
-            case 's3':
-                return require('./s3').readFile(filePath, this.options)
-            case 'oss':
-                return require('./oss').readFile(filePath, this.options)
-            default:
-                return '$invalid_storage_type'
+        try{
+            switch (this.options.type){
+                case 'local':
+                    return require('./local').readFile(filePath, this.options)
+                case 's3':
+                    return require('./s3').readFile(filePath, this.options)
+                case 'oss':
+                    return require('./oss').readFile(filePath, this.options)
+                default:
+                    return '$invalid_storage_type'
+            }
+        }
+        catch(err){
+            Log.error(err);
         }
     },
-    writeFile: async function(filePath, blob){        
+    writeFile: async function(filePath, blob){
         try{
             switch (this.options.type){
                 case 'local':
@@ -28,10 +37,10 @@ module.exports = {
             }
         }
         catch(err){
-            console.dir(err)
+            Log.error(err);
         }        
     },
-    plugin: function(vm, ctx, site, options){
+    _plugin: function(vm, ctx, site, options){
 
     }
 }

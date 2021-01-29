@@ -44,10 +44,10 @@ function readFile(filePath, options){
 }
 function writeFile(filePath, blob, options){
     return new Promise(function(resolve, reject){
-        try{            
+        try{
             filePath = getFullPath(RootPath, options.rootPath, filePath);
             createDirectory(filePath);
-            Fs.writeFile(filePath, blob, function(err){                
+            Fs.writeFile(filePath, blob, function(err){
                 if (err)
                     reject(err)
                 else    
