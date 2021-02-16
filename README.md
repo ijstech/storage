@@ -1,2 +1,2 @@
 # @ijstech/storage
-Storage plugin for [Secure Application Server](https://github.com/ijstech/app-server)
+Storage plugin for [IJS Secure Node Server](https://github.com/ijstech/node)
